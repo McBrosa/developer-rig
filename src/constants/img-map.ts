@@ -9,7 +9,7 @@ import * as mobileOff from '../img/mobileOff.png';
 import { ExtensionAnchor, ExtensionMode, ExtensionPlatform } from './extension-coordinator';
 
 export const ViewTypeImages: { [key: string]: { on: string; off: string; } } = {
-  [ExtensionAnchor.Overlay]: { on: overlay, off: overlayOff },
+  [ExtensionAnchor.VideoOverlay]: { on: overlay, off: overlayOff },
   [ExtensionAnchor.Panel]: { on: panel, off: panelOff },
   [ExtensionAnchor.Component]: { on: component, off: componentOff },
   [ExtensionMode.Config]: { on: panel, off: panelOff }, // TODO
