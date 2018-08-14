@@ -59,7 +59,7 @@ export class RigComponent extends React.Component<Props, State> {
     clientId: process.env.EXT_CLIENT_ID,
     secret: process.env.EXT_SECRET,
     version: process.env.EXT_VERSION,
-    channelId: process.env.EXT_CHANNEL_ID,
+    channelId: process.env.EXT_CHANNEL_ID || `RIG${process.env.EXT_OWNER_NAME}`,
     ownerName: process.env.EXT_OWNER_NAME,
     extensionViews: [],
     manifest: {} as ExtensionManifest,
@@ -194,7 +194,7 @@ export class RigComponent extends React.Component<Props, State> {
       role: extensionViewDialogState.viewerType,
       isLinked: linked,
       ownerId: this.state.ownerName,
-      channelId: this.state.channelId,
+      channelId: extensionViewDialogState.channelId,
       secret: this.state.secret,
       opaqueId: extensionViewDialogState.opaqueId,
     };
@@ -242,6 +242,7 @@ export class RigComponent extends React.Component<Props, State> {
           extension={this.state.extension} />
         {this.state.showExtensionsView &&
           <ExtensionViewDialog
+            channelId={this.state.channelId}
             extensionViews={this.state.manifest.views}
             show={this.state.showExtensionsView}
             closeHandler={this.closeExtensionViewDialog}
